@@ -1,0 +1,13 @@
+#!/bin/bash
+# Publish a push notification via ntfy
+#
+# Environment variables:
+#   SERVICE_BASE_URL  — Your enrollment endpoint (includes topic)
+#   UNITYSVC_API_KEY   — Your UnitySVC API key
+
+curl -X POST "${SERVICE_BASE_URL}" \
+  -H "Authorization: Bearer ${UNITYSVC_API_KEY}" \
+  -H "Title: Hello from ntfy" \
+  -H "Priority: default" \
+  -H "Tags: wave" \
+  -d "This is a test notification sent via cURL"

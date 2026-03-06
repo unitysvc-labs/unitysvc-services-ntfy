@@ -1,0 +1,11 @@
+{
+  "contact_email": "support@unitysvc.com",
+  "description": "Simple HTTP-based pub-sub notification service. Send push notifications to your phone or desktop via scripts, without signup or cost.",
+  "display_name": "ntfy.sh",
+  "documents": {},
+  "homepage": "https://ntfy.sh",
+  "name": "ntfy-sh",
+  "schema": "provider_v1",
+  "status": "ready",
+  "time_created": "2025-01-04T00:00:00Z"
+}

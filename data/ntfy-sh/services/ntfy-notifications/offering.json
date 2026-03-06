@@ -1,0 +1,41 @@
+{
+  "currency": "USD",
+  "description": "Push notification service powered by ntfy. Publish messages from any script, CI pipeline, or application using simple HTTP POST requests \u2014 receive them instantly on your phone (iOS/Android), desktop, or via streaming API. Each enrollment gets a unique private topic with support for message priorities, emoji tags, click actions, scheduled delivery, and attachments. No client library required; any tool that can make HTTP requests (cURL, Python requests, fetch) works out of the box.",
+  "details": {
+    "features": [
+      "HTTP POST/PUT publishing",
+      "Real-time WebSocket subscriptions",
+      "Mobile apps (iOS, Android)",
+      "Message priorities (1-5) and emoji tags",
+      "Click actions and attachments",
+      "Scheduled/delayed delivery",
+      "No signup required"
+    ],
+    "max_message_size_bytes": 4096,
+    "message_retention_hours": 12,
+    "protocols": [
+      "http",
+      "websocket"
+    ]
+  },
+  "documents": {},
+  "name": "ntfy-notifications",
+  "payout_price": {
+    "description": "Platform retains 0% - free service",
+    "percentage": "100.00",
+    "type": "revenue_share"
+  },
+  "schema": "offering_v1",
+  "service_type": "undetermined",
+  "status": "ready",
+  "tagline": "Simple pub-sub notifications",
+  "time_created": "2025-01-04T00:00:00Z",
+  "upstream_access_interfaces": {
+    "ntfy-upstream": {
+      "access_method": "http",
+      "api_key": null,
+      "base_url": "https://ntfy.svcpass.com/{{ enrollment_code(6) }}",
+      "description": "Private ntfy instance - no authentication required"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "display_name": "ntfy Push Notifications",
+  "documents": {
+    "Connectivity test": {
+      "category": "connectivity_test",
+      "description": "Connectivity test script for ntfy push notifications",
+      "file_path": "../../docs/connectivity.sh.j2",
+      "is_active": true,
+      "is_public": false,
+      "meta": {
+        "output_contains": "unitysvc connectivity test successful"
+      },
+      "mime_type": "bash"
+    },
+    "Python code example": {
+      "category": "code_example",
+      "description": "Publish a notification with Python",
+      "file_path": "../../docs/code_example.py.j2",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "python"
+    },
+    "User guide": {
+      "category": "tutorial",
+      "description": "Tutorial covering publishing, subscribing, and mobile app setup",
+      "file_path": "../../docs/user-guide.md",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "markdown"
+    },
+    "cURL code example": {
+      "category": "code_example",
+      "description": "Publish a notification with cURL",
+      "file_path": "../../docs/code_example.sh.j2",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "bash"
+    }
+  },
+  "name": "default",
+  "schema": "listing_v1",
+  "service_options": {},
+  "status": "ready",
+  "time_created": "2025-01-04T00:00:00Z",
+  "user_access_interfaces": {
+    "ntfy-gateway": {
+      "access_method": "http",
+      "base_url": "${GATEWAY_BASE_URL}/ntfy/{{ enrollment_code(6) }}",
+      "description": "Publish notifications via HTTP POST to your unique ntfy endpoint"
+    }
+  },
+  "user_parameters_schema": {
+    "properties": {
+      "base_url": {
+        "default": "https://ntfy.svcpass.com",
+        "description": "Base URL for the ntfy instance (used for ops testing)",
+        "title": "Upstream Base URL",
+        "type": "string"
+      }
+    },
+    "type": "object"
+  }
+}
