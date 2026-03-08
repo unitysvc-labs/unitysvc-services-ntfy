@@ -34,7 +34,7 @@
     "ntfy-upstream": {
       "access_method": "http",
       "api_key": null,
-      "base_url": "https://ntfy.svcpass.com/{{ enrollment_code(6) }}",
+      "base_url": "https://ntfy.svcpass.com/{{ topic }}",
       "description": "Private ntfy instance - no authentication required"
     }
   }

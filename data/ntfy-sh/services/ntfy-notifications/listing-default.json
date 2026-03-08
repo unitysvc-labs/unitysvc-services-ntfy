@@ -39,13 +39,17 @@
   },
   "name": "default",
   "schema": "listing_v1",
-  "service_options": {},
+  "service_options": {
+    "enrollment_vars": {
+      "topic": "{{ enrollment_code(6) }}"
+    }
+  },
   "status": "ready",
   "time_created": "2025-01-04T00:00:00Z",
   "user_access_interfaces": {
     "ntfy-gateway": {
       "access_method": "http",
-      "base_url": "${GATEWAY_BASE_URL}/ntfy/{{ enrollment_code(6) }}",
+      "base_url": "${GATEWAY_BASE_URL}/ntfy/{{ topic }}",
       "description": "Publish notifications via HTTP POST to your unique ntfy endpoint"
     }
   },
