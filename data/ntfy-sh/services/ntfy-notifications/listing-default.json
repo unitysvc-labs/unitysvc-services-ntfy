@@ -44,6 +44,11 @@
       "topic": "{{ enrollment_code(6) }}"
     }
   },
+  "list_price": {
+    "price": "0.01",
+    "description": "Per notification",
+    "type": "constant"
+  },
   "status": "ready",
   "time_created": "2025-01-04T00:00:00Z",
   "user_access_interfaces": {
