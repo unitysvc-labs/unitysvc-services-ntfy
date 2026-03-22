@@ -30,7 +30,7 @@
   "status": "ready",
   "tagline": "Simple pub-sub notifications",
   "time_created": "2025-01-04T00:00:00Z",
-  "upstream_access_interfaces": {
+  "upstream_access_config": {
     "ntfy-upstream": {
       "access_method": "http",
       "api_key": null,
