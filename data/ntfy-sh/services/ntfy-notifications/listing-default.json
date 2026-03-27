@@ -61,7 +61,7 @@
   "user_parameters_schema": {
     "properties": {
       "base_url": {
-        "default": "https://ntfy.svcpass.com",
+        "default": "https://ntfy.staging.svcmarket.com",
         "description": "Base URL for the ntfy instance (used for ops testing)",
         "title": "Upstream Base URL",
         "type": "string"
