@@ -65,16 +65,5 @@
       "base_url": "${API_GATEWAY_BASE_URL}/ntfy/{{ enrollment_vars.topic }}",
       "description": "Publish notifications via HTTP POST to your unique ntfy endpoint"
     }
-  },
-  "user_parameters_schema": {
-    "properties": {
-      "base_url": {
-        "default": "https://ntfy.staging.svcmarket.com",
-        "description": "Base URL for the ntfy instance (used for ops testing)",
-        "title": "Upstream Base URL",
-        "type": "string"
-      }
-    },
-    "type": "object"
   }
 }
