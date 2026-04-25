@@ -1,4 +1,7 @@
 {
+  "capabilities": [
+    "push-notification"
+  ],
   "currency": "USD",
   "description": "Push notification service powered by ntfy. Publish messages from any script, CI pipeline, or application using simple HTTP POST requests \u2014 receive them instantly on your phone (iOS/Android), desktop, or via streaming API. Each enrollment gets a unique private topic with support for message priorities, emoji tags, click actions, scheduled delivery, and attachments. No client library required; any tool that can make HTTP requests (cURL, Python requests, fetch) works out of the box.",
   "details": {
@@ -27,7 +30,6 @@
   },
   "schema": "offering_v1",
   "service_type": "notification",
-  "capabilities": ["push-notification"],
   "status": "ready",
   "tagline": "Simple pub-sub notifications",
   "time_created": "2025-01-04T00:00:00Z",

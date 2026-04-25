@@ -12,6 +12,14 @@
       },
       "mime_type": "bash"
     },
+    "Getting started tutorial": {
+      "category": "tutorial",
+      "description": "Step-by-step guide to ntfy push notifications: enrollment, publishing, mobile app, WebSocket subscriptions, and rich notifications",
+      "file_path": "../../docs/tutorials/getting-started.md",
+      "is_active": true,
+      "is_public": true,
+      "mime_type": "markdown"
+    },
     "Python code example": {
       "category": "code_example",
       "description": "Publish a notification with Python",
@@ -35,15 +43,12 @@
       "is_active": true,
       "is_public": true,
       "mime_type": "bash"
-    },
-    "Getting started tutorial": {
-      "category": "tutorial",
-      "description": "Step-by-step guide to ntfy push notifications: enrollment, publishing, mobile app, WebSocket subscriptions, and rich notifications",
-      "file_path": "../../docs/tutorials/getting-started.md",
-      "is_active": true,
-      "is_public": true,
-      "mime_type": "markdown"
     }
+  },
+  "list_price": {
+    "description": "Per notification",
+    "price": "0.01",
+    "type": "constant"
   },
   "name": "default",
   "schema": "listing_v1",
@@ -51,11 +56,6 @@
     "enrollment_vars": {
       "topic": "{{ enrollment_code(6) }}"
     }
-  },
-  "list_price": {
-    "price": "0.01",
-    "description": "Per notification",
-    "type": "constant"
   },
   "status": "ready",
   "time_created": "2025-01-04T00:00:00Z",
