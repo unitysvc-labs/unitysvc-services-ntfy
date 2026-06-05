@@ -53,8 +53,8 @@
   "name": "default",
   "schema": "listing_v1",
   "service_options": {
-    "enrollment_vars": {
-      "topic": "{{ enrollment_code(6) }}"
+    "enrollment": {
+      "scope": "global"
     }
   },
   "status": "ready",
@@ -62,7 +62,7 @@
   "user_access_interfaces": {
     "ntfy-gateway": {
       "access_method": "http",
-      "base_url": "${API_GATEWAY_BASE_URL}/ntfy/{{ enrollment_vars.topic }}",
+      "base_url": "${API_GATEWAY_BASE_URL}/ntfy/{{ enrollment.code }}",
       "description": "Publish notifications via HTTP POST to your unique ntfy endpoint"
     }
   }
