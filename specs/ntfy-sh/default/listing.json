@@ -50,8 +50,7 @@
     "price": "0.01",
     "type": "constant"
   },
-  "name": "default",
-  "schema": "listing_v1",
+  "name": "ntfy-sh/default",
   "service_options": {
     "enrollment": {
       "scope": "global"

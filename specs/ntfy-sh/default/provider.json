@@ -5,7 +5,6 @@
   "documents": {},
   "homepage": "https://ntfy.sh",
   "name": "ntfy-sh",
-  "schema": "provider_v1",
   "status": "ready",
   "time_created": "2025-01-04T00:00:00Z"
 }
