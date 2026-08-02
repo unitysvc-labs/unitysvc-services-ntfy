@@ -1,3 +1,7 @@
 {
-  "service_id": "bd021139-c425-45e5-8f50-9a4155644cb2"
+  "display_name": "ntfy Push Notifications",
+  "name": "ntfy-sh/default",
+  "service_id": "bd021139-c425-45e5-8f50-9a4155644cb2",
+  "status": "created",
+  "time_created": "2026-08-02T23:41:51.361138Z"
 }
