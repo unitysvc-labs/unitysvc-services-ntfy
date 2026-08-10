@@ -29,15 +29,15 @@ Install the official ntfy app so you can receive notifications on your phone.
 Once installed, add a subscription:
 
 1. Tap **+** (or "Add subscription")
-2. Set **Server URL** to `https://ntfy.svcpass.com`
+2. Set **Server URL** to `https://ntfy.unitysvc.dev`
 3. Set **Topic** to your 6-character code (e.g. `RZEVCL`)
 4. Tap **Subscribe**
 
 <table><tr>
-<td><img src="images/ntfyapp-settings.jpg" alt="App settings — set default server to ntfy.svcpass.com" width="300"></td>
+<td><img src="images/ntfyapp-settings.jpg" alt="App settings — set default server to ntfy.unitysvc.dev" width="300"></td>
 <td><img src="images/ntfy-subscription.jpg" alt="Add subscription (iOS)" width="300"></td>
 </tr><tr>
-<td><em>Set default server to ntfy.svcpass.com</em></td>
+<td><em>Set default server to ntfy.unitysvc.dev</em></td>
 <td><em>Enter your topic code and subscribe</em></td>
 </tr></table>
 
@@ -338,7 +338,7 @@ All endpoints use your enrollment URL as the base. Replace `RZEVCL` with your to
 
 ### Messages not appearing on mobile
 
-- Ensure you've entered the correct server URL (`https://ntfy.svcpass.com`) and topic code in the mobile app
+- Ensure you've entered the correct server URL (`https://ntfy.unitysvc.dev`) and topic code in the mobile app
 - Messages are retained for 12 hours — older messages won't appear
 
 ---

@@ -50,12 +50,7 @@
     "price": "0.01",
     "type": "constant"
   },
-  "name": "ntfy-sh/default",
-  "service_options": {
-    "enrollment": {
-      "scope": "global"
-    }
-  },
+  "name": "labs/ntfy-sh",
   "status": "ready",
   "time_created": "2025-01-04T00:00:00Z",
   "user_access_interfaces": {

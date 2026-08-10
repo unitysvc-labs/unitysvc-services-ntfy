@@ -160,13 +160,13 @@ Install the official ntfy app to receive notifications on your phone.
 Once installed, add a subscription:
 
 1. Tap **+** (or "Add subscription")
-2. Set **Server URL** to `https://ntfy.svcpass.com`
+2. Set **Server URL** to `https://ntfy.unitysvc.dev`
 3. Set **Topic** to your 6-character code (e.g., `NHKVGT`)
 4. Tap **Subscribe**
 
 <!-- ![Mobile app subscription setup](./images/04-mobile-app-subscribe.png) -->
 
-> **Important:** The mobile app connects directly to `https://ntfy.svcpass.com`, NOT through the UnitySVC gateway. No API key is needed for receiving notifications — only for publishing them.
+> **Important:** The mobile app connects directly to `https://ntfy.unitysvc.dev`, NOT through the UnitySVC gateway. No API key is needed for receiving notifications — only for publishing them.
 
 Send a test notification from your terminal (Step 3) and verify it appears on your phone within seconds.
 
@@ -436,7 +436,7 @@ notify("Payment failed", title="Billing Alert", priority=4, tags=["warning"])
 |---------|-------|-----|
 | 401 Unauthorized | Invalid or missing API key | Verify `SVCPASS_API_KEY` is set and starts with `svcpass_` |
 | 404 Not Found | Not enrolled or wrong topic code | Check enrollment on dashboard; topic codes are case-sensitive |
-| Messages don't appear on mobile | Wrong server URL in app | Set server to `https://ntfy.svcpass.com` (not ntfy.sh) |
+| Messages don't appear on mobile | Wrong server URL in app | Set server to `https://ntfy.unitysvc.dev` (not ntfy.sh) |
 | Messages don't appear on mobile | Wrong topic code | Verify topic matches your enrollment code exactly |
 | Empty response body | Message too large | Keep messages under 4 KB |
 | WebSocket disconnects | Client-side timeout | ntfy sends keepalives every ~30s — check your client timeout settings |
