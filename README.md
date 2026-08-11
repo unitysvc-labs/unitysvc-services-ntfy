@@ -18,7 +18,7 @@ This repo contains the provider, offering, and listing data for the **ntfy Push 
 ## Data Structure
 
 ```
-specs/
+services/specs/
 └── labs/
     └── ntfy-sh/                       # the folder name IS the service name
         ├── provider.json              # Provider: UnitySVC Labs (`labs`)
@@ -35,7 +35,7 @@ specs/
 ```
 
 The service is published as **`labs/ntfy-sh`** — `listing.name` is the folder's
-path under `specs/`, and `offering.name` is the bare service name (`ntfy-sh`).
+path under `services/specs/`, and `offering.name` is the bare service name (`ntfy-sh`).
 
 ### Documents
 
