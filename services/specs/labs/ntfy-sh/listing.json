@@ -46,7 +46,7 @@
     }
   },
   "list_price": {
-    "description": "Per notification",
+    "description": "$0.01 / notification",
     "price": "0.01",
     "type": "constant"
   },
