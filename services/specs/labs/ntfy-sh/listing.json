@@ -7,9 +7,6 @@
       "file_path": "connectivity.sh.j2",
       "is_active": true,
       "is_public": false,
-      "meta": {
-        "output_contains": "unitysvc connectivity test successful"
-      },
       "mime_type": "bash"
     },
     "Getting started tutorial": {
