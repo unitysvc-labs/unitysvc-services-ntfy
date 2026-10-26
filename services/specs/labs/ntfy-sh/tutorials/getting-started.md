@@ -8,7 +8,7 @@ This tutorial walks you through the entire process: from enrolling in the servic
 
 | Feature | Details |
 |---------|---------|
-| **Endpoint URL** | `https://api.unitysvc.com/ntfy/{TOPIC_CODE}` |
+| **Endpoint URL** | `https://api.unitysvc.com/e/{TOPIC_CODE}` |
 | **Topic code** | Unique 6-character alphanumeric code (e.g., `NHKVGT`) |
 | **Price** | $0.01 per notification |
 | **Message size** | 4 KB max |
@@ -66,7 +66,7 @@ export TOPIC_CODE="YOUR_TOPIC_CODE"
 Your notification endpoint is:
 
 ```
-https://api.unitysvc.com/ntfy/{TOPIC_CODE}
+https://api.unitysvc.com/e/{TOPIC_CODE}
 ```
 
 ---
@@ -76,7 +76,7 @@ https://api.unitysvc.com/ntfy/{TOPIC_CODE}
 Publish a plain-text message to your topic:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/${TOPIC_CODE}" \
+curl -X POST "https://api.unitysvc.com/e/${TOPIC_CODE}" \
   -H "Authorization: Bearer ${SVCPASS_API_KEY}" \
   -H "Title: Hello from UnitySVC" \
   -H "Priority: default" \
@@ -115,7 +115,7 @@ api_key = os.environ["SVCPASS_API_KEY"]
 topic = os.environ["TOPIC_CODE"]
 
 response = requests.post(
-    f"https://api.unitysvc.com/ntfy/{topic}",
+    f"https://api.unitysvc.com/e/{topic}",
     headers={
         "Authorization": f"Bearer {api_key}",
         "Title": "Hello from Python",
@@ -177,7 +177,7 @@ Send a test notification from your terminal (Step 3) and verify it appears on yo
 Open a long-lived connection to stream messages in real time:
 
 ```bash
-curl -s "https://api.unitysvc.com/ntfy/${TOPIC_CODE}/json" \
+curl -s "https://api.unitysvc.com/e/${TOPIC_CODE}/json" \
   -H "Authorization: Bearer ${SVCPASS_API_KEY}"
 ```
 
@@ -214,7 +214,7 @@ import websockets
 async def listen():
     topic = os.environ["TOPIC_CODE"]
     api_key = os.environ["SVCPASS_API_KEY"]
-    uri = f"wss://api.unitysvc.com/ntfy/{topic}/ws"
+    uri = f"wss://api.unitysvc.com/e/{topic}/ws"
     headers = {"Authorization": f"Bearer {api_key}"}
 
     async with websockets.connect(uri, additional_headers=headers) as ws:
@@ -256,7 +256,7 @@ ntfy supports rich notification features via HTTP headers:
 ### Example: All features combined
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/${TOPIC_CODE}" \
+curl -X POST "https://api.unitysvc.com/e/${TOPIC_CODE}" \
   -H "Authorization: Bearer ${SVCPASS_API_KEY}" \
   -H "Title: Deploy Complete" \
   -H "Priority: high" \
@@ -331,14 +331,14 @@ Expected response:
 }
 ```
 
-> **Note:** When posting to the topic URL (`/ntfy/{TOPIC_CODE}`), the body is treated as the message text and metadata goes in headers. When posting to the base URL (`/ntfy/`), you can use a JSON body with all fields including `topic`.
+> **Note:** When posting to the topic URL (`/e/{TOPIC_CODE}`), the body is treated as the message text and metadata goes in headers. When posting to the base URL (`/ntfy/`), you can use a JSON body with all fields including `topic`.
 
 ### Delayed delivery
 
 Schedule a message for later:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/${TOPIC_CODE}" \
+curl -X POST "https://api.unitysvc.com/e/${TOPIC_CODE}" \
   -H "Authorization: Bearer ${SVCPASS_API_KEY}" \
   -H "Delay: 30m" \
   -d "Reminder: check on the deploy"
@@ -359,7 +359,7 @@ Send a notification when a GitHub Actions workflow finishes:
 - name: Notify on success
   if: success()
   run: |
-    curl -s -X POST "https://api.unitysvc.com/ntfy/${{ vars.TOPIC_CODE }}" \
+    curl -s -X POST "https://api.unitysvc.com/e/${{ vars.TOPIC_CODE }}" \
       -H "Authorization: Bearer ${{ secrets.SVCPASS_API_KEY }}" \
       -H "Title: Deploy Succeeded" \
       -H "Tags: white_check_mark" \
@@ -368,7 +368,7 @@ Send a notification when a GitHub Actions workflow finishes:
 - name: Notify on failure
   if: failure()
   run: |
-    curl -s -X POST "https://api.unitysvc.com/ntfy/${{ vars.TOPIC_CODE }}" \
+    curl -s -X POST "https://api.unitysvc.com/e/${{ vars.TOPIC_CODE }}" \
       -H "Authorization: Bearer ${{ secrets.SVCPASS_API_KEY }}" \
       -H "Title: Deploy Failed" \
       -H "Priority: high" \
@@ -383,7 +383,7 @@ Add to cron — sends a notification only when a health check fails:
 ```bash
 #!/bin/bash
 curl -sf https://myapi.com/health || \
-  curl -X POST "https://api.unitysvc.com/ntfy/${TOPIC_CODE}" \
+  curl -X POST "https://api.unitysvc.com/e/${TOPIC_CODE}" \
     -H "Authorization: Bearer ${SVCPASS_API_KEY}" \
     -H "Title: Health Check Failed" \
     -H "Priority: urgent" \
@@ -408,7 +408,7 @@ def notify(message, title=None, priority=None, tags=None):
         headers["Tags"] = ",".join(tags)
 
     requests.post(
-        f"https://api.unitysvc.com/ntfy/{TOPIC_CODE}",
+        f"https://api.unitysvc.com/e/{TOPIC_CODE}",
         headers=headers,
         data=message,
     )
@@ -449,10 +449,10 @@ All endpoints use your topic code. Replace `{TOPIC_CODE}` with your 6-character 
 
 | Method | Path | Description |
 |--------|------|-------------|
-| `POST` | `/ntfy/{TOPIC_CODE}` | Publish a message |
-| `PUT` | `/ntfy/{TOPIC_CODE}` | Publish a message (same as POST) |
-| `GET` | `/ntfy/{TOPIC_CODE}/json` | Subscribe via HTTP JSON stream |
-| `GET` | `/ntfy/{TOPIC_CODE}/ws` | Subscribe via WebSocket |
+| `POST` | `/e/{TOPIC_CODE}` | Publish a message |
+| `PUT` | `/e/{TOPIC_CODE}` | Publish a message (same as POST) |
+| `GET` | `/e/{TOPIC_CODE}/json` | Subscribe via HTTP JSON stream |
+| `GET` | `/e/{TOPIC_CODE}/ws` | Subscribe via WebSocket |
 
 ---
 
