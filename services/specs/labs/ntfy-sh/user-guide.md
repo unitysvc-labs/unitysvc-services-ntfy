@@ -8,7 +8,7 @@ Push notifications delivered via HTTP. Publish from any script, CI pipeline, or 
 
 After enrolling in **ntfy Push Notifications**, you receive:
 
-- A unique **endpoint URL** like `https://api.unitysvc.com/ntfy/RZEVCL`
+- A unique **endpoint URL** like `https://api.unitysvc.com/e/RZEVCL`
 - The 6-character code (`RZEVCL`) is your **private topic** — all messages published to this URL are delivered only to subscribers of this topic
 
 You'll also need your **UnitySVC API key** (found on the API Keys page in your dashboard) to publish messages through the gateway.
@@ -58,7 +58,7 @@ Once installed, add a subscription:
 Open a terminal and publish a plain-text message:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+curl -X POST "https://api.unitysvc.com/e/RZEVCL" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
   -d "Hello from ntfy!"
 ```
@@ -90,7 +90,7 @@ There are several ways to receive messages beyond the mobile app.
 Open a long-lived connection to stream messages in real time:
 
 ```bash
-curl -s "https://api.unitysvc.com/ntfy/RZEVCL/json" \
+curl -s "https://api.unitysvc.com/e/RZEVCL/json" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY"
 ```
 
@@ -110,7 +110,7 @@ import json
 import websockets
 
 async def listen():
-    uri = "wss://api.unitysvc.com/ntfy/RZEVCL/ws"
+    uri = "wss://api.unitysvc.com/e/RZEVCL/ws"
     headers = {"Authorization": "Bearer svcpass_YOUR_API_KEY"}
 
     async with websockets.connect(uri, additional_headers=headers) as ws:
@@ -125,7 +125,7 @@ asyncio.run(listen())
 ### WebSocket (JavaScript)
 
 ```javascript
-const ws = new WebSocket("wss://api.unitysvc.com/ntfy/RZEVCL/ws");
+const ws = new WebSocket("wss://api.unitysvc.com/e/RZEVCL/ws");
 
 // Note: WebSocket API does not support custom headers in browsers.
 // Use query parameter authentication if available, or use the
@@ -156,7 +156,7 @@ ws.onmessage = (event) => {
 ntfy supports rich notifications via HTTP headers:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+curl -X POST "https://api.unitysvc.com/e/RZEVCL" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
   -H "Title: Build Failed" \
   -H "Priority: high" \
@@ -179,7 +179,7 @@ curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
 You can also send structured JSON instead of using headers:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+curl -X POST "https://api.unitysvc.com/e/RZEVCL" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -195,7 +195,7 @@ curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
 Attach a URL that opens when the notification is tapped:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+curl -X POST "https://api.unitysvc.com/e/RZEVCL" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
   -H "Click: https://example.com/dashboard" \
   -d "New report ready — click to view"
@@ -206,7 +206,7 @@ curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
 Schedule a message for later:
 
 ```bash
-curl -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+curl -X POST "https://api.unitysvc.com/e/RZEVCL" \
   -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
   -H "Delay: 30m" \
   -d "Reminder: check on the deploy"
@@ -227,7 +227,7 @@ Send a notification when a GitHub Actions workflow completes:
 - name: Notify on success
   if: success()
   run: |
-    curl -s -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+    curl -s -X POST "https://api.unitysvc.com/e/RZEVCL" \
       -H "Authorization: Bearer ${{ secrets.UNITYSVC_API_KEY }}" \
       -H "Title: Deploy Succeeded" \
       -H "Tags: white_check_mark" \
@@ -236,7 +236,7 @@ Send a notification when a GitHub Actions workflow completes:
 - name: Notify on failure
   if: failure()
   run: |
-    curl -s -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+    curl -s -X POST "https://api.unitysvc.com/e/RZEVCL" \
       -H "Authorization: Bearer ${{ secrets.UNITYSVC_API_KEY }}" \
       -H "Title: Deploy Failed" \
       -H "Priority: high" \
@@ -250,7 +250,7 @@ Send a notification when a GitHub Actions workflow completes:
 #!/bin/bash
 USAGE=$(df / | awk 'NR==2 {print $5}' | tr -d '%')
 if [ "$USAGE" -gt 90 ]; then
-  curl -s -X POST "https://api.unitysvc.com/ntfy/RZEVCL" \
+  curl -s -X POST "https://api.unitysvc.com/e/RZEVCL" \
     -H "Authorization: Bearer svcpass_YOUR_API_KEY" \
     -H "Title: Disk Alert" \
     -H "Priority: high" \
@@ -274,7 +274,7 @@ def notify(message, title=None, priority=None, tags=None):
         headers["Tags"] = ",".join(tags)
 
     requests.post(
-        "https://api.unitysvc.com/ntfy/RZEVCL",
+        "https://api.unitysvc.com/e/RZEVCL",
         headers=headers,
         data=message,
     )
@@ -304,10 +304,10 @@ All endpoints use your enrollment URL as the base. Replace `RZEVCL` with your to
 
 | Method | Path | Description |
 |--------|------|-------------|
-| `POST` | `/ntfy/RZEVCL` | Publish a message |
-| `PUT` | `/ntfy/RZEVCL` | Publish a message (same as POST) |
-| `GET` | `/ntfy/RZEVCL/json` | Subscribe via HTTP JSON stream |
-| `GET` | `/ntfy/RZEVCL/ws` | Subscribe via WebSocket |
+| `POST` | `/e/RZEVCL` | Publish a message |
+| `PUT` | `/e/RZEVCL` | Publish a message (same as POST) |
+| `GET` | `/e/RZEVCL/json` | Subscribe via HTTP JSON stream |
+| `GET` | `/e/RZEVCL/ws` | Subscribe via WebSocket |
 
 ---
 
